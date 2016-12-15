@@ -57,7 +57,6 @@ public class OrionStompSessionHandler implements StompSessionHandler{
 		}
 		ObjectNode json = (ObjectNode)payload;
 		
-		
 		//check if a registration message
 		if(json.has("type")){
 			
@@ -70,7 +69,6 @@ public class OrionStompSessionHandler implements StompSessionHandler{
 			
 			String type = receivedMessage.getType();
 			String message = receivedMessage.getMessage();
-			
 			switch(type){
 				case "sessionId":
 					System.out.println("Setting sessionId");
@@ -85,6 +83,9 @@ public class OrionStompSessionHandler implements StompSessionHandler{
 					System.out.println("removed subscription from list");
 					subscriptions.remove(message);
 					break;
+				case "error":
+					System.out.println("error trying to subscribe to entity: "+message);
+					parent.handleMessage(json);
 			}
 			
 		}else{
