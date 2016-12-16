@@ -29,6 +29,8 @@
 		<groupId>dk.alexandra.orion</groupId>
 		<artifactId>websocketTransports</artifactId>
 		<version>0.1</version>
+		<scope>system</scope>
+		<systemPath>${project.basedir}/libs/transports.jar</systemPath>
 	</dependency>
 	<dependency>
 	    <groupId>com.fasterxml.jackson.core</groupId>
