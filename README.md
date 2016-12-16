@@ -6,11 +6,11 @@ As the Context Broker is REST based, we provide a Spring.io based middleware (ht
 
 ## Dependencies
 This example was created using the following tools:
-  Eclipse Neon
-  Maven 3.3.9
-  Jetty
-  Processing
-  Stomp
+  - Eclipse Neon
+  - Maven 3.3.9
+  - Jetty
+  - Processing
+  - Stomp
 
 ## Installation
 Unzip and put the extracted webSockets folder into the libraries folder of your Java application or Processing
