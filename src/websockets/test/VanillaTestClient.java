@@ -17,9 +17,9 @@ public class VanillaTestClient implements WebsocketCallback{
 	public VanillaTestClient(){
 		now = System.currentTimeMillis();
 		
-		//wsc= new WebsocketClientStomp(this, "ws://localhost:8081/orion");
+		wsc= new WebsocketClientStomp(this, "ws://localhost:8081/orion");
 		//running instance of Websocket middleware:
-		wsc= new WebsocketClientStomp(this, "ws://ec2-52-40-19-99.us-west-2.compute.amazonaws.com:8081/orion");
+		//wsc= new WebsocketClientStomp(this, "ws://ec2-52-40-19-99.us-west-2.compute.amazonaws.com:8081/orion");
 		startLoop();
 	}
 	

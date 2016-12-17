@@ -127,8 +127,11 @@ public class OrionStompSessionHandler implements StompSessionHandler{
 
 	@Override
 	public void handleTransportError(StompSession arg0, Throwable arg1) {
-		System.out.println("Transport Error: ");
-		arg1.printStackTrace();
+		System.out.println("Transport Error: "+arg1);
+		//arg1.printStackTrace();
+		System.out.println("exiting...");
+		System.exit(1);
+		
 		
 	}
 	

@@ -1,8 +1,8 @@
 # Websockets for Orion Context Broker
 
-**Create websocket clients for connecting with the Orion Context Broker (https://fiware-orion.readthedocs.io/en/master/), which makes it possible to subscribe to updates from entities in the swarm.
+Create websocket clients for connecting with the Orion Context Broker (https://fiware-orion.readthedocs.io/en/master/), which makes it possible to subscribe to updates from entities in the swarm.
 As the Context Broker is REST based, we provide a Spring.io based middleware (https://github.com/OrganicityEu-Platform/WebsocketMiddleware) for transforming the connections between REST and Websockets.
-**
+
 
 ## Dependencies
 This example was created using the following tools:
@@ -182,6 +182,13 @@ public class ProcessingTestClient extends PApplet implements WebsocketCallback{
 }
 
 ```
+
+## Usage
+- Make sure you have Maven installed (https://maven.apache.org/)
+- Run from command line:
+'''
+  mvn exec:java -Dexec.mainClass="websockets.test.VanillaTestClient"
+'''
 
 ## Technical development details
 The library has been developed on a Mac with El Capitan, I have used the Eclipse Luna IDE,

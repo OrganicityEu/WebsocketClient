@@ -4,6 +4,13 @@
   <artifactId>WebsocketClient</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+    <repositories>
+    <repository>
+      <id>AI</id>
+      <name>Alexandra Institute maven repository</name>
+      <url>https://maven.alexandra.dk/repository/maven-snapshots</url>
+    </repository>
+  </repositories>
   
   <dependencies>
   	<!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
@@ -26,13 +33,6 @@
 	    <version>4.3.3.RELEASE</version>
 	</dependency>
 	<dependency>
-		<groupId>dk.alexandra.orion</groupId>
-		<artifactId>websocketTransports</artifactId>
-		<version>0.1</version>
-		<scope>system</scope>
-		<systemPath>${project.basedir}/libs/transports.jar</systemPath>
-	</dependency>
-	<dependency>
 	    <groupId>com.fasterxml.jackson.core</groupId>
 	    <artifactId>jackson-core</artifactId>
 	    <version>2.8.4</version>
@@ -41,9 +41,57 @@
 	    <groupId>com.fasterxml.jackson.core</groupId>
 	    <artifactId>jackson-databind</artifactId>
 	    <version>2.8.4</version>
-	</dependency>	
+	</dependency>
+
+	
+	<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>servlet-api</artifactId>
+	    <version>2.5</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-io -->
+	<dependency>
+	    <groupId>org.eclipse.jetty</groupId>
+	    <artifactId>jetty-io</artifactId>
+	    <version>9.3.6.v20151106</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-util -->
+	<dependency>
+	    <groupId>org.eclipse.jetty</groupId>
+	    <artifactId>jetty-util</artifactId>
+	    <version>9.3.6.v20151106</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-api -->
+	<dependency>
+	    <groupId>org.eclipse.jetty.websocket</groupId>
+	    <artifactId>websocket-api</artifactId>
+	    <version>9.3.6.v20151106</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-client -->
+	<dependency>
+	    <groupId>org.eclipse.jetty.websocket</groupId>
+	    <artifactId>websocket-client</artifactId>
+	    <version>9.3.6.v20151106</version>
+	</dependency>
+		
+	<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-server -->
+	<dependency>
+	    <groupId>org.eclipse.jetty.websocket</groupId>
+	    <artifactId>websocket-server</artifactId>
+	    <version>9.3.6.v20151106</version>
+	</dependency>
+
+	<dependency>
+	    <groupId>dk.alexandra.organicity</groupId>
+	    <artifactId>WebsocketTransports</artifactId>
+	    <version>0.0.1-20161217.142358-1</version>
+	</dependency>
+	
+		
 		
   </dependencies>
+ 
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>

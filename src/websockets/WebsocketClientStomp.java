@@ -74,11 +74,9 @@ public class WebsocketClientStomp {
 		stompClient.setMessageConverter(new MappingJackson2MessageConverter());
 		stompClient.setTaskScheduler(taskScheduler); // for heartbeats
 		
-		//TOOD: maybe this is not a working solution?
 		sessionHandler = new OrionStompSessionHandler(this);
-		
 		stompClient.connect(endpointURI, sessionHandler);
-		
+
 	}
 
 	
