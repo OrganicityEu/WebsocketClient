@@ -13,8 +13,9 @@ This example was created using the following tools:
   - Stomp
 
 ## Installation
-Unzip and put the extracted webSockets folder into the libraries folder of your Java application or Processing
-sketches. Reference and examples are included in the webSockets folder.
+Download the zip (remember to unzip) or jar file from the libs folder. 
+If using it in Processing, drag the jar file over the Processing IDE to add to project and C/P the example code for Processing below to gets started.
+If using it as a Java lib, include the jar file in you classpath.
 
 ## Examples explained
 I have provided two simple examples on using both the pure Java implementation and one for Processing. These can be
@@ -102,16 +103,13 @@ In the following I provide the full example code of creating a websocket client 
 In the below code I create an example subscription (https://fiware-orion.readthedocs.io/en/master/user/walkthrough_apiv2/index.html#subscriptions) and send it to the server. Afterwards (max 5 seconds) I unregister the same subscription. For every time I receive a message from the Middleware i draw a new ellipse without delete the old one.
 
 ```
-package websockets.test;
-
 import java.util.List;
 
 import dk.alexandra.orion.websocket.transports.OrionSubscription;
-import processing.core.PApplet;
 import websockets.WebsocketClientStomp;
 import websockets.handlers.WebsocketCallback;
 
-public class ProcessingTestClient extends PApplet implements WebsocketCallback{
+static final class ProcessingTestClient extends PApplet implements WebsocketCallback{
   
   WebsocketClientStomp wsc;
   int now;
@@ -124,8 +122,9 @@ public class ProcessingTestClient extends PApplet implements WebsocketCallback{
 
   public void setup(){
     newEllipse=true;
-    
-    wsc= new WebsocketClientStomp(this, "ws://localhost:8080/orion");
+    println("test");
+    wsc= new WebsocketClientStomp(this, "ws://31.200.243.76:8090/orion");
+
     now=millis();
   }
   
@@ -146,7 +145,8 @@ public class ProcessingTestClient extends PApplet implements WebsocketCallback{
         String[] cond = new String[1];
         cond[0] = "pressure";
         //reference: https://fiware-orion.readthedocs.io/en/develop/user/walkthrough_apiv2/index.html#subscriptions
-        OrionSubscription subscription = new OrionSubscription(cond, attr, "P1D", "Room1", false, "Room",null);
+        String entityId = "urn:oc:entity:experimenters:cf2c1723-3369-4123-8b32-49abe71c0e57:5846db253be86fb0409329e8:11";
+        OrionSubscription subscription = new OrionSubscription(cond, attr, "P1D", entityId, false, "Room",null);
         System.out.println("trying to set subscrition");
         hasSubscription = wsc.registerSubscription(subscription);
         if(hasSubscription){
@@ -172,13 +172,12 @@ public class ProcessingTestClient extends PApplet implements WebsocketCallback{
    newEllipse=true;
   }
   
+ 
   
-  
-  public static void main(String[] args){
-    println("Starting Processing client");
-    PApplet.main("websockets.test.ProcessingTestClient");
-  }
+}
 
+static final void main( String[] args ){
+    PApplet.runSketch(append(args,""),new ProcessingTestClient());
 }
 
 ```
