@@ -2,15 +2,15 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>dk.alexandra.organicity</groupId>
   <artifactId>WebsocketClient</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-    <repositories>
-    <repository>
-      <id>AI</id>
-      <name>Alexandra Institute maven repository</name>
-      <url>https://maven.alexandra.dk/repository/maven-snapshots</url>
-    </repository>
-  </repositories>
+  <version>0.0.2-SNAPSHOT</version>
+
+	<repositories>
+		<repository>
+			<id>AI</id>
+			<name>Alexandra Institute maven repository</name>
+			<url>https://maven.alexandra.dk/repository/maven-snapshots</url>
+		</repository>
+	</repositories>
   
   <dependencies>
   	<!-- https://mvnrepository.com/artifact/org.springframework/spring-websocket -->
@@ -85,12 +85,20 @@
 	<dependency>
 	    <groupId>dk.alexandra.organicity</groupId>
 	    <artifactId>WebsocketTransports</artifactId>
-	    <version>0.0.1-20161217.142358-1</version>
+	    <version>0.0.2-20161217.142358-1</version>
 	</dependency>
 	
 		
 		
   </dependencies>
+  
+  <distributionManagement>
+	<repository>
+		<id>maven.alexandra.dk</id>
+		<name>websocket-client</name>
+		<url>https://maven.alexandra.dk/repository/maven-snapshots</url>
+	</repository>
+</distributionManagement>
  
   <build>
     <sourceDirectory>src</sourceDirectory>
