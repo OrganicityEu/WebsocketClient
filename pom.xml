@@ -85,7 +85,7 @@
 	<dependency>
 	    <groupId>dk.alexandra.organicity</groupId>
 	    <artifactId>WebsocketTransports</artifactId>
-	    <version>0.0.2-20161217.142358-1</version>
+	    <version>0.0.2-20170327.194413-1</version>
 	</dependency>
 	
 		

@@ -39,7 +39,6 @@ public class VanillaTestClient implements WebsocketCallback{
   
   WebsocketClientStomp wsc;
   long now;
-  boolean newEllipse;
   boolean hasSubscription = false;
   
   
@@ -53,15 +52,20 @@ public class VanillaTestClient implements WebsocketCallback{
     while(true){
       if(System.currentTimeMillis()>now+5000){
         if(!hasSubscription){
-            //example of how to create a subscription
-            String[] attr = new String[1];
-            attr[0] = "temperature";
-            String[] cond = new String[1];
-            cond[0] = "pressure";
-            //reference: https://fiware-orion.readthedocs.io/en/develop/user/walkthrough_apiv2/index.html#subscriptions
-            OrionSubscription subscription = new OrionSubscription(cond, attr, "P1D", "Room1", false, "Room",null);
-            System.out.println("trying to set subscrition");
-            hasSubscription = wsc.registerSubscription(subscription);
+			//example of how to create a subscription
+			String[] attr = new String[1];
+			attr[0] = "comments";
+			String[] cond = new String[1];
+			cond[0] = "comments";
+			//reference: https://fiware-orion.readthedocs.io/en/develop/user/walkthrough_apiv2/index.html#subscriptions
+			String entityId = "urn:oc:entity:experimenters:5a660d96-0ef7-42ca-9f6c-5dbb86d6aa20:58ab32f36f8b513746565c54:wsasset";
+			//Look there to acquire token: https://github.com/OrganicityEu/organicityeu.github.io/blob/mkdocs/docs/HowToAuthenticateAnUser.md
+			String token = "<Your token here>";
+			OrionSubscription subscription = new OrionSubscription(cond, attr, "P1D", entityId, false, "urn:oc:entityType:userImage",null,token);
+					  
+			System.out.println("trying to set subscrition");
+			hasSubscription = wsc.registerSubscription(subscription);
+
             if(hasSubscription){
               System.out.println("subscription set");
             }  
