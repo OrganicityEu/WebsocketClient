@@ -30,6 +30,7 @@ public class OrionStompSessionHandler implements StompSessionHandler{
 			throw new IllegalArgumentException("Parent is needed");
 		}
 		this.parent = parent;
+
 	}
 	
 	
@@ -89,7 +90,7 @@ public class OrionStompSessionHandler implements StompSessionHandler{
 			}
 			
 		}else{
-			System.out.println("Normal message - forwarded to Processing");
+			System.out.println("Normal message - forwarded to client");
 			System.out.println("message content: "+json);
 
 			//normal message is forwarded to Processing part
